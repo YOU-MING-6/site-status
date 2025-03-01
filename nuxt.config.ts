@@ -7,7 +7,7 @@ import pkg from "./package.json";
 
 // site env
 const siteConfig = {
-  siteTitle: process.env.SITE_TITLE || "IMSYY 站点监测",
+  siteTitle: process.env.SITE_TITLE || "YOU MING 站点监测",
   siteDescription: process.env.SITE_DESCRIPTION || "一个简约的站点监测",
   siteKeywords: process.env.SITE_KEYWORDS || "站点监测,监测,监控",
   siteLogo: process.env.SITE_LOGO || "/favicon.ico",

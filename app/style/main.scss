@@ -5,17 +5,17 @@
   --main-box-shadow: rgba(0, 0, 0, 0.1);
   --cover-fill-color: 247, 247, 247;
   // 背景
-  --loading-cover: radial-gradient(circle, #00c6ff, #0072ff, #00d2ff, #00b0ff);
-  --error-cover: radial-gradient(circle, #ff4b5c, #ff2a3b, #ff6f5e, #f15239);
-  --warn-cover: radial-gradient(circle, #ffa500, #ff8c00, #ff7f00, #ff6600);
-  --unknown-cover: radial-gradient(circle, #7f8c8d, #b5b5b5, #858c8d, #34495e);
-  --normal-cover: radial-gradient(circle, #2ecc71, #27ae60, #16a085, #1abc9c);
+  --loading-cover: radial-gradient(circle, #4dabf7, #339af0, #228be6, #1c7ed6);
+  --error-cover: radial-gradient(circle, #ff8787, #ff6b6b, #fa5252, #f03e3e);
+  --warn-cover: radial-gradient(circle, #ffa94d, #ff922b, #fd7e14, #f76707);
+  --unknown-cover: radial-gradient(circle, #ced4da, #adb5bd, #868e96, #495057);
+  --normal-cover: radial-gradient(circle, #69db7c, #51cf66, #40c057, #37b24d);
   // 主颜色
-  --loading-color: #58d0ff;
-  --normal-color: #3bd672;
-  --error-color: #de484a;
-  --warn-color: #f39c12;
-  --unknown-color: #7f8c8d;
+  --loading-color: #228be6;
+  --normal-color: #51cf66;
+  --error-color: #fa5252;
+  --warn-color: #fd7e14;
+  --unknown-color: #868e96;
   // 深色模式
   &.dark-mode {
     --main-bg-color: rgb(36, 36, 36);
