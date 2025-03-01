@@ -82,7 +82,7 @@ const navMenu = computed<DropdownOption[]>(() => [
     label: "GitHub",
     icon: renderIcon("icon:github"),
     props: {
-      onClick: () => window.open("https://github.com/imsyy/site-status"),
+      onClick: () => window.open("https://github.com/YOU-MING-6/site-status"),
     },
   },
   {

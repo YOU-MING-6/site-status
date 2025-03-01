@@ -31,8 +31,8 @@
         {{ $t("footer.fiveMinutes") }}
       </n-p>
       <n-p depth="3">
-        Copyright &copy; 2020 - {{ new Date().getFullYear() }}
-        <n-text depth="3" @click="jumpLink(linkData.home)"> IMSYY </n-text>
+        by IMSYY ; &copy; 2020 - {{ new Date().getFullYear() }}
+        <n-text depth="3" @click="jumpLink(linkData.home)"> YOU MING </n-text>
         <n-text
           v-if="siteIcp"
           depth="3"
@@ -50,7 +50,7 @@ const { public: configPublic } = useRuntimeConfig();
 const { siteIcp, version } = configPublic;
 
 const linkData = {
-  github: "https://github.com/imsyy/site-status",
+  github: "https://github.com/YOU-MING-6/site-status",
   home: "https://work.youming.v6.army/",
   email: "https://work.youming.v6.army/notes/反馈中心/",
 };
