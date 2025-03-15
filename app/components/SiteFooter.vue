@@ -17,9 +17,8 @@
     <n-flex :size="4" class="text" align="center" vertical>
       <n-p depth="3">
         <n-text depth="3" @click="jumpLink(linkData.github)">
-          SiteStatus
+          Github 仓库
         </n-text>
-        Version {{ version }}
       </n-p>
       <n-p depth="3">
         {{ $t("footer.basedOn") }}

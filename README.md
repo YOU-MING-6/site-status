@@ -1,2 +1,3 @@
-# 这里是 YOU MING 的网站监测页面
-没什么好看的
+## 这里是 Youming 工作室 的网站状态面板
+一个基于 UptimeRobot API 的在线状态面板
+[查看源项目](https://github.com/imsyy/site-status)

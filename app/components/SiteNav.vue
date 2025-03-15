@@ -86,11 +86,6 @@ const navMenu = computed<DropdownOption[]>(() => [
     },
   },
   {
-    key: "about",
-    label: t("nav.about"),
-    icon: renderIcon("icon:info"),
-  },
-  {
     key: "logout",
     label: t("nav.logout"),
     show: statusStore.loginStatus,
