@@ -16,11 +16,6 @@
     </n-flex>
     <n-flex :size="4" class="text" align="center" vertical>
       <n-p depth="3">
-        <n-text depth="3" @click="jumpLink(linkData.github)">
-          Github 仓库
-        </n-text>
-      </n-p>
-      <n-p depth="3">
         {{ $t("footer.basedOn") }}
         <n-text depth="3" @click="jumpLink('https://uptimerobot.com/')">
           {{ $t("uptimeRobot") }}
@@ -30,7 +25,7 @@
         {{ $t("footer.fiveMinutes") }}
       </n-p>
       <n-p depth="3">
-        by IMSYY ; &copy; 2020 - {{ new Date().getFullYear() }}
+        by IMSYY ; &copy; 2025 - {{ new Date().getFullYear() }}
         <n-text depth="3" @click="jumpLink(linkData.home)"> YOU MING </n-text>
         <n-text
           v-if="siteIcp"
