@@ -3,7 +3,7 @@ import zh from "./locales/zh-CN.json";
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "zh-CN",
-  messages: { "zh-CN": zh, "en-US": en },
+  messages: { "zh-CN": zh, en },
   fallbackLocale: "zh-CN",
   // 语言偏好
   detectBrowserLanguage: {
