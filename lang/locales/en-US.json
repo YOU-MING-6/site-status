@@ -58,7 +58,7 @@
     "today": "Today"
   },
   "login": {
-    "tip": "The site is password protected. Please enter the password to view.",
+    "tip": "The site has been enabled password protection, please enter the password YOU MING to view",
     "password": "Password",
     "placeholder": "Enter password",
     "submit": "Login",

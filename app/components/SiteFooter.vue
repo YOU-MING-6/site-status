@@ -26,7 +26,7 @@
       </n-p>
       <n-p depth="3">
         by IMSYY ; &copy; 2025 - {{ new Date().getFullYear() }}
-        <n-text depth="3" @click="jumpLink(linkData.home)"> YOU MING </n-text>
+        <n-text depth="3" @click="jumpLink(linkData.home)"> YOU MING 柚明 </n-text>
         <n-text
           v-if="siteIcp"
           depth="3"
