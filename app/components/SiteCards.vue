@@ -256,16 +256,16 @@ onMounted(getSiteData);
     position: absolute;
     width: 100%;
     height: 100%;
-          top: 0;
-          left: 0;
-          border-radius: 50%;
-          opacity: 1;
-          z-index: -1;
-          animation: breathing 1.5s ease infinite;
-          transition: background-color 1s;
-        }
-      }
-    }
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 1;
+    z-index: -1;
+    animation: breathing 1.5s ease infinite;
+    transition: background-color 1s;
+  }
+}
+
 .timeline {
   margin: 15px 0 10px;
   
@@ -289,6 +289,10 @@ onMounted(getSiteData);
   .date {
     width: 100px;
     font-size: 13px;
+    
+    &:last-child {
+      text-align: right;
+    }
   }
 }
 
@@ -310,6 +314,15 @@ onMounted(getSiteData);
   }
 }
 
+.day-data {
+  display: flex;
+  flex-direction: column;
+  
+  .date {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .site-cards {
     margin: 15px auto;
@@ -318,45 +331,6 @@ onMounted(getSiteData);
   
   .site-item {
     border-radius: 8px;
-  }
-}
-          transform: scale(1.1);
-        }
-      }
-    }
-    .summary {
-      .date {
-        width: 100px;
-        &:last-child {
-          text-align: right;
-        }
-      }
-      .n-text {
-        font-size: 13px;
-      }
-    }
-  }
-  &.loading {
-    .site-item {
-      min-height: 200px;
-      :deep(.n-card__content) {
-        padding: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-    .n-spin-body {
-      --n-size: 40px;
-      --n-color: var(--color);
-    }
-  }
-}
-.day-data {
-  display: flex;
-  flex-direction: column;
-  .date {
-    font-size: 12px;
   }
 }
 </style>
