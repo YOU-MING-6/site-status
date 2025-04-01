@@ -1,61 +1,113 @@
+/* 颜色变量定义 */
 :root {
+  // 基础颜色
+  --white: rgb(255, 255, 255);
+  --black: rgb(36, 36, 36);
+  --gray: rgb(66, 66, 66);
+  
+  // 主题变量
   --main-bg-color: rgb(247, 247, 247);
-  --main-card-color: rgb(255, 255, 255);
-  --mian-border-color: rgba(255, 255, 255, 0.09);
+  --main-card-color: var(--white);
+  --main-border-color: rgba(255, 255, 255, 0.09);
   --main-box-shadow: rgba(0, 0, 0, 0.1);
   --cover-fill-color: 247, 247, 247;
-  // 背景
-  --loading-cover: radial-gradient(circle, #4dabf7, #339af0, #228be6, #1c7ed6);
-  --error-cover: radial-gradient(circle, #ff8787, #ff6b6b, #fa5252, #f03e3e);
-  --warn-cover: radial-gradient(circle, #ffa94d, #ff922b, #fd7e14, #f76707);
-  --unknown-cover: radial-gradient(circle, #ced4da, #adb5bd, #868e96, #495057);
-  --normal-cover: radial-gradient(circle, #69db7c, #51cf66, #40c057, #37b24d);
-  // 主颜色
+  
+  // 状态颜色
   --loading-color: #228be6;
   --normal-color: #51cf66;
   --error-color: #fa5252;
   --warn-color: #fd7e14;
   --unknown-color: #868e96;
+  
+  // 背景渐变
+  --loading-cover: linear-gradient(135deg, #4dabf7, #1c7ed6);
+  --error-cover: linear-gradient(135deg, #ff8787, #f03e3e);
+  --warn-cover: linear-gradient(135deg, #ffa94d, #f76707);
+  --unknown-cover: linear-gradient(135deg, #ced4da, #495057);
+  --normal-cover: linear-gradient(135deg, #69db7c, #37b24d);
+  
   // 深色模式
   &.dark-mode {
-    --main-bg-color: rgb(36, 36, 36);
-    --main-card-color: rgb(66, 66, 66);
-    --mian-border-color: rgba(0, 0, 0, 0.1);
+    --main-bg-color: var(--black);
+    --main-card-color: var(--gray);
+    --main-border-color: rgba(0, 0, 0, 0.2);
     --cover-fill-color: 36, 36, 36;
     --cover-filter: brightness(80%);
   }
 }
 
+/* 全局重置 */
 * {
   margin: 0;
   padding: 0;
-  user-select: none;
   box-sizing: border-box;
+  user-select: none;
   -webkit-user-drag: none;
+  
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
+/* 基础布局 */
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--main-bg-color);
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 #nuxt-app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  will-change: transform;
 }
 
+/* 组件样式 */
 .n-scrollbar {
+  --scrollbar-size: 8px;
+  
   .n-scrollbar-rail {
     right: 0 !important;
+    width: var(--scrollbar-size) !important;
   }
+  
   .n-scrollbar-rail__scrollbar {
     z-index: 9999 !important;
+    will-change: transform, opacity;
+    width: var(--scrollbar-size) !important;
+    border-radius: var(--scrollbar-size) !important;
   }
 }
 
 .n-back-top {
+  --back-top-size: 40px;
+  
   z-index: 9999;
+  width: var(--back-top-size);
+  height: var(--back-top-size);
+  will-change: transform;
+}
+
+/* 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #nuxt-app {
+    min-height: -webkit-fill-available;
+  }
 }
