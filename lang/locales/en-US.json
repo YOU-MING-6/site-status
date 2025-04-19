@@ -8,8 +8,7 @@
     "warn": "Some sites encountered issues"
   },
   "nav": {
-    "about": "About this site",
-    "logout": "Logout"
+    "about": "About this site"
   },
   "header": {
     "loading": "Please wait a moment ...",
@@ -56,13 +55,5 @@
     "fastTip": "Refreshing too frequently. Please try again later.",
     "refresh": "Retry",
     "today": "Today"
-  },
-  "login": {
-    "tip": "The site has been enabled password protection, please enter the password YOU MING to view",
-    "password": "Password",
-    "placeholder": "Enter password",
-    "submit": "Login",
-    "error": "Password is incorrect",
-    "success": "Login successful"
   }
 }
