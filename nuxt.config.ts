@@ -30,7 +30,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vueuse/nuxt",
     "nuxt-lodash",
-    "@nuxtjs/i18n",
   ].concat(siteConfig.platform === "cloudflare" ? "@nuxthub/core" : ""),
   // ssr
   ssr: false,
@@ -134,10 +133,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  // i18n
-  i18n: {
-    vueI18n: "./lang/i18n.config.ts",
-  },
+
   // icon
   icon: {
     mode: "svg",
