@@ -1,6 +1,6 @@
 {
   "name": "site-status",
-  "description": "一个简单的站点状态页面，由 uptimerobot 提供支持",
+  "description": "a simple site-status pages, power by uptimerobot",
   "version": "2.0.0",
   "author": {
     "name": "YOU MING"
