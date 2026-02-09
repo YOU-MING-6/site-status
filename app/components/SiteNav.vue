@@ -24,6 +24,24 @@
             </template>
           </n-button>
         </Transition>
+        <!-- 语言 -->
+        <n-popselect
+          v-model:value="statusStore.siteLang"
+          :options="langData"
+          trigger="click"
+        >
+          <n-button
+            :focusable="false"
+            :color="iconColor"
+            size="large"
+            quaternary
+            circle
+          >
+            <template #icon>
+              <Icon name="icon:language" />
+            </template>
+          </n-button>
+        </n-popselect>
         <!-- 菜单 -->
         <n-dropdown trigger="click" :options="navMenu">
           <n-button
@@ -46,6 +64,7 @@
 <script setup lang="ts">
 import { NIcon, type DropdownOption } from "naive-ui";
 import { Icon } from "#components";
+import { langData } from "~/assets/data/text";
 
 const { t } = useI18n();
 const colorMode = useColorMode();

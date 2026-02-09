@@ -57,4 +57,4 @@ export interface MonitorsResult {
 }
 
 // site lang
-export type SiteLangType = "zh-CN";
+export type SiteLangType = "zh-CN" | "en";
