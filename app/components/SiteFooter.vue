@@ -45,8 +45,8 @@ const { siteIcp, version } = configPublic;
 
 const linkData = {
   github: "https://github.com/YOU-MING-6/site-status",
-  home: "https://work.youming.v6.army/",
-  email: "https://work.youming.v6.army/notes/反馈中心/",
+  home: "https://docs.youming.v6.army/",
+  email: "https://docs.youming.v6.army/notes/反馈中心/",
 };
 </script>
 
