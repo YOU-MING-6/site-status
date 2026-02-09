@@ -27,8 +27,4 @@ export const langData: SelectOption[] = [
     label: "简体中文",
     value: "zh-CN",
   },
-  {
-    label: "English",
-    value: "en",
-  },
 ];
