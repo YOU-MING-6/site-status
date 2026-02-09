@@ -13,24 +13,24 @@
   --cover-fill-color: 247, 247, 247;
   
   // 状态颜色
-  --loading-color: #228be6;
-  --normal-color: #51cf66;
-  --error-color: #fa5252;
-  --warn-color: #fd7e14;
+  --loading-color: #0095ff;
+  --normal-color: #64dc64;
+  --error-color: #ff6666;
+  --warn-color: #ff9600;
   --unknown-color: #868e96;
   
   // 背景渐变
-  --loading-cover: linear-gradient(135deg, #4dabf7, #1c7ed6);
-  --error-cover: linear-gradient(135deg, #ff8787, #f03e3e);
-  --warn-cover: linear-gradient(135deg, #ffa94d, #f76707);
+  --loading-cover: linear-gradient(135deg, #4db5ff, #005999);
+  --error-cover: linear-gradient(135deg, #e79797, #ff0000);
+  --warn-cover: linear-gradient(135deg, #ffa64d, #995900);
   --unknown-cover: linear-gradient(135deg, #ced4da, #495057);
-  --normal-cover: linear-gradient(135deg, #69db7c, #37b24d);
+  --normal-cover: linear-gradient(135deg, #a4eaa4, #29b329);
   
   // 深色模式
   &.dark-mode {
     --main-bg-color: var(--black);
     --main-card-color: var(--gray);
-    --main-border-color: rgba(0, 0, 0, 0.2);
+    --main-border-color: rgba(0, 0, 0, 0.3);
     --cover-fill-color: 36, 36, 36;
     --cover-filter: brightness(80%);
   }
