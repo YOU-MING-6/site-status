@@ -33,6 +33,8 @@
 const config = useRuntimeConfig();
 const statusStore = useStatusStore();
 
+const { setLocale } = useI18n();
+
 // 加载状态
 const siteLoaded = ref<boolean>(false);
 
@@ -56,6 +58,12 @@ const siteScroll = (e: Event) => {
   statusStore.scrollTop = scrollTop;
 };
 
+// 更改站点语言
+const setSiteLang = (lang: string) => {
+  setLocale(lang);
+  useHead({ htmlAttrs: { lang } });
+};
+
 // 监听站点状态
 watch(
   () => statusStore.siteStatus,
@@ -75,7 +83,14 @@ watch(
   },
 );
 
+// 语言更改
+watch(() => statusStore.siteLang, setSiteLang);
+
 onBeforeMount(checkSite);
+
+onMounted(() => {
+  setSiteLang(statusStore.siteLang);
+});
 </script>
 
 <style lang="scss" scoped>

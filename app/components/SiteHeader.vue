@@ -21,19 +21,19 @@
                 {{ siteGlobalText[statusStore.siteStatus] }}
               </span>
               <span v-if="statusStore.siteStatus === 'loading'" class="tip">
-                请稍等片刻 ...
+                {{ $t("header.loading") }}
               </span>
               <span
                 v-else-if="statusStore.siteStatus === 'unknown'"
                 class="tip"
               >
-                这可能是临时性问题，请刷新后重试
+                {{ $t("header.unknown") }}
               </span>
               <!-- 更新频率 -->
               <n-flex v-else :size="0" class="tip" align="center">
                 <span>
-                  更新于
-                  {{ 
+                  {{ $t("header.update") }}
+                  {{
                     formatTime(statusStore.siteData?.timestamp || 0, {
                       showTime: true,
                       showOnlyTimeIfToday: true,
@@ -41,7 +41,7 @@
                   }}
                 </span>
                 <span>
-                  将于 {{ nextUpdateTime }} 后刷新
+                  {{ $t("header.updateAt", { time: nextUpdateTime }) }}
                 </span>
                 <n-button
                   :focusable="false"
@@ -86,6 +86,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
 const statusStore = useStatusStore();
 
 // 倒计时
@@ -93,11 +94,11 @@ const updateTime = ref<number>(300);
 
 // 站点状态文本
 const siteGlobalText = computed(() => ({
-  loading: "站点状态加载中",
-  unknown: "站点状态未知",
-  normal: "站点运行正常",
-  error: "全部站点出现异常",
-  warn: "部分站点出现异常",
+  loading: t("site.loading"),
+  unknown: t("site.unknown"),
+  normal: t("site.normal"),
+  error: t("site.error"),
+  warn: t("site.warn"),
 }));
 
 // 更新倒计时
@@ -106,8 +107,8 @@ const nextUpdateTime = computed(() => {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
   return minutes > 0
-    ? `${minutes} 分 ${seconds} 秒`
-    : `${seconds} 秒`;
+    ? `${minutes} ${t("meta.minute")} ${seconds} ${t("meta.second")}`
+    : `${seconds} ${t("meta.second")}`;
 });
 
 // 更新数据
@@ -116,7 +117,7 @@ const refresh = async () => {
   if (!lastUpdate) return;
   // 小于 5 分钟
   if (Date.now() - lastUpdate < 5 * 60 * 1000) {
-    window.$message.warning("刷新过于频繁，请稍后再试");
+    window.$message.warning(t("meta.fastTip"));
     return;
   }
   updateTime.value = 300;

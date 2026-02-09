@@ -22,7 +22,10 @@
               </template>
               <n-text>
                 {{
-                    每间隔 
+                  $t("card.type.tip", {
+                    interval: formatInterval(site?.interval) || "30s",
+                    type: siteTypeMap[site.type]?.text,
+                  })
                 }}
               </n-text>
             </n-popover>
@@ -73,18 +76,22 @@
             </template>
             <div class="day-data">
               <n-text class="date" depth="3">
-                {{ day?.date ? formatTime(day.date) : "未知日期" }}
+                {{ day?.date ? formatTime(day.date) : $t("card.unknownDate") }}
               </n-text>
               <!-- 详细 -->
               <n-text v-if="day?.percent >= 100">
-                当日可用率 {{ day?.percent }}%
+                {{ $t("card.percent", { percent: day?.percent }) }}
               </n-text>
               <n-text v-else-if="day?.percent > 0 && day?.percent < 100">
                 {{
-                  故障 {{ day?.down?.times || 0 }} 次，累计故障时长 {{ formatDuration(day?.down?.duration || 0) }}，当日可用率 {{ day?.percent }}%
+                  $t("card.percentData", {
+                    times: day?.down?.times,
+                    duration: formatDuration(day?.down?.duration),
+                    percent: day?.percent,
+                  })
                 }}
               </n-text>
-              <n-text v-else>当日无数据</n-text>
+              <n-text v-else>{{ $t("card.unknownData") }}</n-text>
             </div>
           </n-popover>
         </n-flex>
@@ -95,15 +102,22 @@
           </n-text>
           <n-text v-if="site?.down?.times" depth="3">
             {{
-              最近 {{ site?.days?.length }} 天内故障 {{ site?.down?.times || 0 }} 次，累计故障时长 {{ formatDuration(site?.down?.duration || 0) }}，平均可用率 {{ site?.percent }}%
+              $t("card.summaryData", {
+                times: site?.down?.times,
+                duration: formatDuration(site?.down?.duration),
+                percent: site?.percent,
+              })
             }}
           </n-text>
           <n-text v-else depth="3">
             {{
-              最近 {{ site?.days?.length }} 天内可用率 {{ site?.percent }}%
+              $t("card.summary", {
+                days: site?.days?.length,
+                percent: site?.percent,
+              })
             }}
           </n-text>
-          <n-text class="date" depth="3">今日</n-text>
+          <n-text class="date" depth="3">{{ $t("meta.today") }}</n-text>
         </n-flex>
       </n-card>
     </div>
@@ -118,8 +132,8 @@
           <n-result
             v-else
             status="error"
-            :title="'出错啦'"
-            :description="'接口调用超限或请求错误，请稍后重试'"}]}
+            :title="$t('card.error')"
+            :description="$t('card.errorText')"
           >
             <template #footer>
               <n-button tertiary round @click="refresh">
@@ -136,24 +150,25 @@
 <script setup lang="ts">
 import type { SiteStatusType, SiteType } from "~~/types/main";
 
+const { t } = useI18n();
 const statusStore = useStatusStore();
 
 // 站点类型
 const siteStatusMap = computed(() => ({
-  0: { text: "暂停检测", type: "unknown" },
-  1: { text: "还未检查", type: "unknown" },
-  2: { text: "正常访问", type: "normal" },
-  8: { text: "站点异常", type: "error" },
-  9: { text: "无法访问", type: "error" },
+  0: { text: t("card.status.stop"), type: "unknown" },
+  1: { text: t("card.status.unknown"), type: "unknown" },
+  2: { text: t("card.status.normal"), type: "normal" },
+  8: { text: t("card.status.error"), type: "error" },
+  9: { text: t("card.status.down"), type: "error" },
 }));
 
 // 请求类型
 const siteTypeMap = computed(() => ({
-  1: { tag: "HTTP", text: "通过发送 HTTP 或 HTTPS 请求来监测目标服务的可用性" },
-  2: { tag: "KEYWORD", text: "通过获取页面内容，并检查返回的内容是否包含指定的关键词" },
-  3: { tag: "PING", text: "使用 ICMP 协议向目标服务器发送 Ping 请求" },
-  4: { tag: "PORT", text: "检测目标服务器的指定端口是否开放" },
-  5: { tag: "HEARTBEAT", text: "由被监控的服务主动发送‘心跳信号’到监控服务，表明自身正常运行" },
+  1: { tag: "HTTP", text: t("card.type.HTTP") },
+  2: { tag: "KEYWORD", text: t("card.type.KEYWORD") },
+  3: { tag: "PING", text: t("card.type.PING") },
+  4: { tag: "PORT", text: t("card.type.PORT") },
+  5: { tag: "HEARTBEAT", text: t("card.type.HEARTBEAT") },
 }));
 
 // 全部站点数据

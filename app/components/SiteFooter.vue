@@ -16,13 +16,13 @@
     </n-flex>
     <n-flex :size="4" class="text" align="center" vertical>
       <n-p depth="3">
-        基于
+        {{ $t("footer.basedOn") }}
         <n-text depth="3" @click="jumpLink('https://uptimerobot.com/')">
-          UptimeRobot
+          {{ $t("uptimeRobot") }}
         </n-text>
-        接口 |
-        检测频率
-        5 分钟
+        {{ $t("footer.interface") }} |
+        {{ $t("footer.checkFrequency") }}
+        {{ $t("footer.fiveMinutes") }}
       </n-p>
       <n-p depth="3">
         by IMSYY ; &copy; 2025 - {{ new Date().getFullYear() }}
